@@ -1,5 +1,6 @@
 package app;
 
+//імпортуємо бібліотеки з JDK : Scanner та Locale :
 import java.util.Scanner;
 import java.util.Locale;
 
@@ -20,6 +21,7 @@ import java.util.Locale;
 
 public class Main {
 
+    //Створюємо змінні :
     static double salaryRate;
     static double coefficient;
     static double taxAmount;
@@ -27,12 +29,14 @@ public class Main {
 
     public static void main(String[] args) {
 
+        //Інтегруємо наш сканер та локейл :
         Scanner input = new Scanner(System.in);
         input.useLocale(Locale.ENGLISH);
 
         System.out.println("Please, tell me your Salary Rate : ");
         salaryRate = input.nextDouble();
 
+        //Створюємо умови для salaryRate та наслідки для coefficient :
         if (salaryRate > 0 && salaryRate <= 10000){
             coefficient = 2.5;
         } else if (salaryRate > 10000 && salaryRate <= 25000) {
@@ -44,8 +48,10 @@ public class Main {
             System.exit(0);
         }
 
+        //Проводимо розрахунок суми податку :
         taxAmount = salaryRate * coefficient / 100;
 
+        //Виводимо результат :
         System.out.printf("Your Tax Amount equal : %s %.2f%n", CURRENCY, taxAmount);
 
     }
